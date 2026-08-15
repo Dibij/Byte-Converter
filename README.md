@@ -15,6 +15,20 @@ The pipeline consists of three main steps:
 
 > **Warning**: A 100 MB video translates to roughly 800 million bits. The resulting number is extremely large! Converting this huge mathematical number to a string for display might be slow and memory-intensive depending on your system and the video size.
 
+## Estimating Size and Number Scale
+Video sizes are largely determined by **Bitrate × Duration**, not just resolution. Here is a rough guide for standard YouTube videos (using codecs like H.264/VP9) per minute of video, and the resulting mathematical number length:
+
+| Quality | Rough Bitrate | Approx. Size per Minute | Decimal Digits of the Huge Number |
+|---|---|---|---|
+| **144p** | ~100 Kbps | ~0.75 MB / min | ~1.8 Million digits |
+| **360p** | ~400 Kbps | ~3.0 MB / min | ~7.2 Million digits |
+| **720p (HD)** | ~2.5 Mbps | ~18.7 MB / min | ~45.0 Million digits |
+| **1080p (FHD)**| ~5.0 Mbps | ~37.5 MB / min | ~90.3 Million digits |
+| **4K (UHD)** | ~20 Mbps | ~150.0 MB / min | ~361.0 Million digits |
+
+**Why so many digits?**  
+Every byte has 8 bits (256 possible values). In a base-10 number system, each byte requires roughly ~2.408 decimal digits. Therefore, a 1 MB file (1,048,576 bytes) translates to an integer that is approximately **2.52 million digits long**!
+
 ## Getting Started
 
 ### Prerequisites
