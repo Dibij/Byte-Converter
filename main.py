@@ -13,7 +13,8 @@ def download_video(url, output_path="video.mp4"):
     ydl_opts = {
         'format': 'best[ext=mp4]',
         'outtmpl': output_path,
-        'quiet': True,
+        'quiet': False, # Let's turn off quiet to see what's happening
+        'extractor_args': {'youtube': ['player_client=ios']},
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
@@ -54,9 +55,9 @@ def main():
         print(f"First 100 digits of the big number: {number_str[:100]}...")
         
         # Clean up
-        print("Cleaning up temporary files...")
-        os.remove(video_file)
-        os.remove(compressed_file)
+        print("Skipping cleanup to keep the video for analysis...")
+        # os.remove(video_file)
+        # os.remove(compressed_file)
         print("Done!")
     except Exception as e:
         print(f"An error occurred: {e}")
